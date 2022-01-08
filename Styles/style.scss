@@ -1,0 +1,341 @@
+/*Подключение шрифта*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+/*Область навигации*/
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 0.3rem;
+
+    .menu {
+        max-width: 72rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+
+        /*Логотип*/
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 4rem;
+
+            span {
+                font-weight: 300; 
+            }
+        }
+
+        /*Кнопка меню*/
+        .burger {
+            height: 4rem;
+            width: 3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .bar {
+                width: 1.9rem;
+                height: 1.5px;
+                border-radius: 2px;
+                background-color: #eee;
+                transition: 0.3s;
+                position: relative;
+
+                &:after, &:before {
+                    content: '';
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                    background: #eee;
+                    transition: 0.3s; 
+                }
+
+                /*Настраивается анимация*/
+                &:before {
+                    transform: translateY(-9px);
+                }
+
+                &:after {
+                    transform: translateY(9px);
+                }
+            }
+        }
+    }
+}
+
+/*Главная страница*/
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #485461;
+    background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+    overflow: hidden;
+    transform-style: preserve-3d; 
+
+    .main {
+        position: relative;
+        width: 100%;
+        left: 0;
+        z-index: 5;
+        overflow: hidden;
+        transform-origin: left;
+        transform-style: preserve-3d;
+        transition: .5s;
+
+        /*Блок с текстом, заголовком и кнопкой, на главной странице*/
+        header {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+
+            /*Добавляется фоновое изображение, без повторов по оси Х, позиционирование сверху по центру, 
+            масштабирование по размеру блока*/
+            /*Блок главной страницы (первый экран)*/
+            &.header-one {
+               background: url(Img/Background-1.jpg) no-repeat top center/cover;
+            }
+
+            /*Блок второй страницы (второй экран)*/
+            &.header-two {
+                background: url(Img/Background-2.jpg) no-repeat top center/cover;
+             }
+
+             /*Блок третьей страницы (третий экран)*/
+             &.header-three {
+                background: url(Img/Background-3.jpg) no-repeat top center/cover;
+             }
+
+             /*Блок четвертой страницы (четвертый экран)*/
+             &.header-four {
+                background: url(Img/Background-4.jpg) no-repeat top center/cover;
+             }
+
+             /*Блок пятой страницы (пятый экран)*/
+             &.header-five {
+                background: url(Img/Background-5.jpg) no-repeat top center/cover;
+             }
+
+             /*Блок шестой страницы (шестой экран)*/
+             &.header-six {
+                background: url(Img/Background-6.jpg) no-repeat top center/cover;
+             }
+
+            /*Расположение текста с заголовком и кнопки на странице*/
+            .header {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: rgba(43, 51, 59, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                /*Стилизация текста с заголовком и кнопки*/
+                &-item {
+                    max-width: 35rem;
+                    text-align: center;
+                    color: white;
+                    padding: 0.2rem;
+
+                    /*Стилизация заголовка*/
+                    .title {
+                        font-size: 2.7rem;
+                    }
+
+                    /*Стилизация кнопки*/
+                    .btn {
+                        display: inline-block;
+                        margin-top: 1rem;
+                        padding: 0.6rem 1.6rem;
+                        background-color: #1179e7;
+                        border: none;
+                        border-radius: 25px;
+                        color: white;
+                        text-transform: uppercase;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /*Тени*/
+    .shadow {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        transform-origin: left;
+        transition: .5s;
+        background: white;
+        &.one {
+            z-index: -1;
+            opacity: .15;
+        }
+        &.two {
+            z-index: -2;
+            opacity: .1;
+        }
+    }
+
+    /*Область меню*/
+    .links {
+        position: absolute;
+        width: 30%;
+        right: 0;
+        top:0;
+        height: 100vh;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: #eee;
+            padding: .07rem 0;
+            font-size: 1rem;
+            display: inline-block;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: .3s;
+            opacity: 1;
+            transform: translateY(10px);
+            animation: hide .5s forwards ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+    }
+}
+
+/*Анимации*/
+.container.active {
+
+    /*Анимация значка меню*/
+    .bar {
+        transform: rotate(360deg);
+        background-color: transparent;
+        &:before {
+            transform: translateY(0) rotate(45deg);
+        }
+        &:after {
+            transform: translateY(0) rotate(-45deg);
+        }
+    }
+
+    /*Анимация блока главной страницы (первый экран), далее, данная часть кода
+     будет применима к остальным страницам*/
+    .main {
+        animation: main-animation 1s ease;
+        cursor: pointer;
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+        //Динамический эффект при наведении курсора на первую карточку
+        &:hover {
+            transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+            + .shadow.one {
+                transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+            }
+        }
+    }
+
+    /*Анимация теней*/
+    .shadow.one{
+        animation: shadow-one .6s ease-out;
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+    .shadow.two {
+        animation: shadow-two .6s ease-out;
+        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+
+    /*Анимация области меню*/
+    .links a {
+        animation: appear 0.5s forwards ease var(--i);//Настройка анимации для каждой ссылки в отдельности
+    }
+}
+
+/*Кейфреймы*/
+/*Главная страница (первый экран)*/
+@keyframes main-animation {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+}
+
+/*Тень второй страницы (второй экран)*/
+@keyframes shadow-one {
+    0% {
+        transform: translate(0);
+    }
+    5% {
+        transform: perspectie(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+    100% {
+        transform: perspectie(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+}
+
+/*Тень третьей страницы (третий экран)*/
+@keyframes shadow-two {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: perspectie(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+    100% {
+        transform: perspectie(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+}
+
+/*Область меню*/
+@keyframes hide {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/*Ссылки в области меню*/
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
